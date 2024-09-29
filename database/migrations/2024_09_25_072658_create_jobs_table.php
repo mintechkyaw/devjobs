@@ -15,11 +15,13 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('job_title');
             $table->string('job_location');
+            $table->longText('job_description');
+            $table->enum('job_type',['office','hybrid','remote']);
             $table->enum('employ_type', ['full-time', 'part-time', 'contract', 'temporary', 'intern', 'volunteer', 'other']);
-            $table->string('application');
+            $table->string('application')->nullable();
             $table->string('company_name');
-            $table->string('salary')->nullable();
-            $table->string('company_logo_path');
+            $table->string('salary')->nullable()->default('negotiate');
+            $table->string('company_logo_path')->nullable();
             $table->boolean('published')->default(false);
             $table->timestamps();
         });

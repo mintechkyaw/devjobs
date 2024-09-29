@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Skill extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name','slug'];
     public function jobs(): BelongsToMany
     {
         return $this->belongsToMany(Job::class);

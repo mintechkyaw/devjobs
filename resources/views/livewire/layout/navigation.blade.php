@@ -1,31 +1,38 @@
-<nav x-data="{ open: false }" class="pt-4">
+<nav x-data="{ open: false }" class="pt-2">
     <!-- Primary Navigation Menu -->
     <div class=" mx-auto px-4 sm:px-6 lg:px-8">
         <div class="content-center h-16">
             <div class="flex justify-between md:justify-around">
                 <!-- Logo -->
                 <div class="shrink-0 flex justify-center items-center">
-                    <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo style="font-size: 42px"
-                            class="inline w-auto text-blue-800 text-4xl font-bold" />
+                    <a href="/" wire:navigate>
+                        <x-application-logo/>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 md:-my-px md:ms-10 md:flex">
-                    <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" wire:navigate>
-                        {{ __('Jobs') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')" wire:navigate>
-                        {{ __('Consultants') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
-                        {{ __('Account') }}
-                    </x-nav-link>
-                    <button
-                        class="text-xl font-bold text-white  hover:text-blue-300 bg-blue-600 px-5 py-3.5 rounded-xl">
-                        Post A Job
-                    </button>
+                <div class=" hidden space-x-4 md:-my-px md:ms-10 md:flex">
+                            <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" wire:navigate>
+                                {{ __('Jobs') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')"
+                                wire:navigate>
+                                {{ __('Consultants') }}
+                            </x-nav-link>
+                            @auth
+                            <x-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
+                                {{ __('Account') }}
+                            </x-nav-link>
+                            @endauth
+                            @guest
+                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')" wire:navigate>
+                                {{ __('Login') }}
+                            </x-nav-link>
+                            @endguest
+                            <button
+                                class="text-xl font-bold text-white  hover:text-blue-950 hover:bg-blue-400 bg-blue-800 sm:bg-indigo-800 md:bg-violet-800 lg:bg-purple-800 px-5 py-3.5 rounded-xl">
+                                Post A Job
+                            </button>
                 </div>
 
                 <!-- Hamburger -->
@@ -47,17 +54,19 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{ 'block ': open, 'hidden': !open }" class="hidden md:hidden ">
             <div class="pt-2 pb-3 space-y-1 flex flex-col ">
-                <x-responsive-nav-link :href="route('jobs')" class="text-center" :active="request()->routeIs('jobs')" wire:navigate>
+                <x-responsive-nav-link :href="route('jobs')" class="text-center" :active="request()->routeIs('jobs')"
+                    wire:navigate>
                     {{ __('Jobs') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')" wire:navigate>
+                <x-responsive-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')"
+                    wire:navigate>
                     {{ __('Consultants') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
                     {{ __('Account') }}
                 </x-responsive-nav-link>
                 <button
-                    class="inline-flex items-center justify-end px-6 py-4 text-xl font-extrabold text-white active:text-blue-300 bg-blue-600 rounded-xl">
+                    class="inline-flex items-center justify-end px-6 py-4 mt-2 text-xl font-extrabold text-white active:text-blue-950 active:bg-blue-400 bg-blue-600 rounded-xl">
                     Post A Job
                 </button>
             </div>

@@ -18,7 +18,7 @@
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
             <!-- Page Content -->
-            <main>
+            <main class="md:px-20">
                 {{ $slot }}
             </main>
         </div>
