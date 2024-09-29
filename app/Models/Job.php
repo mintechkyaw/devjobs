@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Job extends Model
 {
     use HasFactory;
-
+    protected $with = ['skills','user'];
     protected $fillable = [
         'user_id',
         'job_title',
@@ -22,6 +22,7 @@ class Job extends Model
         'company_name',
         'salary',
         'company_logo_path',
+        'featured',
         'published'
     ];
     public function user(): BelongsTo

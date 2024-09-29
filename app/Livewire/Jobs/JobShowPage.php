@@ -9,9 +9,9 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 #[Layout('layouts.app')]
-class JobPage extends Component
+class JobShowPage extends Component
 {
-    public $job_id;
+    protected $job_id;
     public function mount($job)
     {
         $this->job_id = $job;
@@ -20,11 +20,11 @@ class JobPage extends Component
     #[Computed()]
     public function job()
     {
-        return Job::with('skills')->findOrFail($this->job_id);
+        return Job::findOrFail($this->job_id);
     }
 
     public function render()
     {
-        return view('livewire.jobs.job-page');
+        return view('jobs.job-show-page');
     }
 }

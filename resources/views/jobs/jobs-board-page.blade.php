@@ -4,7 +4,7 @@
         <div class="text-lg bg-green-300">
         </div>
         @forelse ($this->jobs as $job)
-        <x-job-wrapper featured="{{$loop->even}}" href="/jobs/{{ $job->id }}">
+        <x-job-wrapper featured="{{$job->featured}}" href="/jobs/{{ $job->id }}">
             <img src="{{ asset('images/minthantkyaw.png') }}" alt="minthantkyawphoto"
                 class="hidden md:block absolute rounded-lg border shadow-lg border-blue-100 h-24 w-24 -left-16">
             <div class="">
@@ -21,7 +21,7 @@
                 </div>
                 <div>
                     @foreach ($job->skills as $skill)
-                    <x-skill-tag :active="true" href="/skill_jobs/{{ $skill->slug }}" wire:navigate>
+                    <x-skill-tag :active="true" href="/{{ $skill->slug }}" wire:navigate>
                         {{ $skill->name }}
                     </x-skill-tag>
                     @endforeach
@@ -47,7 +47,7 @@
                 </x-skill-tag>
                 @foreach ($this->skills as $skill)
 
-                <x-skill-tag :active="true" href="/skill_jobs/{{ $skill->slug }}" wire:navigate>
+                <x-skill-tag :active="true" href="/{{ $skill->slug }}" wire:navigate>
                     {{ $skill->name }} Jobs
                 </x-skill-tag>
 

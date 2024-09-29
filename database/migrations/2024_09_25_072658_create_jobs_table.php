@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('company_name');
             $table->string('salary')->nullable()->default('negotiate');
             $table->string('company_logo_path')->nullable();
+            $table->boolean('featured')->default(false);
             $table->boolean('published')->default(false);
             $table->timestamps();
         });

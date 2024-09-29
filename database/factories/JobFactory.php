@@ -28,6 +28,7 @@ class JobFactory extends Factory
             'company_name' => fake()->company(),
             'salary' => "$" . fake()->numberBetween(100000, 200000),
             'company_logo_path' => null,
+            'featured' => fake()->randomElement([true,false]),
             'published' => true
         ];
     }

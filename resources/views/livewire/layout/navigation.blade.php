@@ -6,33 +6,34 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex justify-center items-center">
                     <a href="/" wire:navigate>
-                        <x-application-logo/>
+                        <x-application-logo />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class=" hidden space-x-4 md:-my-px md:ms-10 md:flex">
-                            <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" wire:navigate>
-                                {{ __('Jobs') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')"
-                                wire:navigate>
-                                {{ __('Consultants') }}
-                            </x-nav-link>
-                            @auth
-                            <x-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
-                                {{ __('Account') }}
-                            </x-nav-link>
-                            @endauth
-                            @guest
-                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')" wire:navigate>
-                                {{ __('Login') }}
-                            </x-nav-link>
-                            @endguest
-                            <button
-                                class="text-xl font-bold text-white  hover:text-blue-950 hover:bg-blue-400 bg-blue-800 sm:bg-indigo-800 md:bg-violet-800 lg:bg-purple-800 px-5 py-3.5 rounded-xl">
-                                Post A Job
-                            </button>
+                    <x-nav-link :href="route('jobs')" :active="request()->routeIs('jobs')" wire:navigate>
+                        {{ __('Jobs') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('consultants')" :active="request()->routeIs('consultants')" wire:navigate>
+                        {{ __('Consultants') }}
+                    </x-nav-link>
+                    @auth
+                    <x-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
+                        {{ __('Account') }}
+                    </x-nav-link>
+                    @else
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')" wire:navigate>
+                        {{ __('Login') }}
+                    </x-nav-link>
+                    @endauth
+                    <a href="{{ route('jobs.create') }}" 
+                        class="px-5 py-3.5 rounded-xl text-xl font-bold text-white  hover:text-blue-950 
+                                 bg-blue-800 sm:bg-indigo-800 md:bg-violet-800 lg:bg-purple-800
+                                 hover:bg-blue-400 hover:sm:bg-indigo-400 hover:md:bg-violet-400 hover:lg:bg-purple-400">
+                        {{ __('Post a Job') }}
+                    </a>
+
                 </div>
 
                 <!-- Hamburger -->
@@ -65,10 +66,10 @@
                 <x-responsive-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
                     {{ __('Account') }}
                 </x-responsive-nav-link>
-                <button
+                <a :href="route('jobs.create')" wire:navigate
                     class="inline-flex items-center justify-end px-6 py-4 mt-2 text-xl font-extrabold text-white active:text-blue-950 active:bg-blue-400 bg-blue-600 rounded-xl">
-                    Post A Job
-                </button>
+                    {{ __('Post a Job') }}
+                </a>
             </div>
         </div>
     </div>

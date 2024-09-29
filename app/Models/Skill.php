@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Skill extends Model
 {
     use HasFactory;
+
+    protected $with = ['companies'];
     protected $fillable = ['name','slug'];
     public function jobs(): BelongsToMany
     {
