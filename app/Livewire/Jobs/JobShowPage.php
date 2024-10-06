@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Jobs;
 
-use App\Http\Resources\JobResource;
 use App\Models\Job;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
@@ -12,6 +11,7 @@ use Livewire\Component;
 class JobShowPage extends Component
 {
     protected $job_id;
+
     public function mount($job)
     {
         $this->job_id = $job;

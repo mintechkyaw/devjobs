@@ -26,8 +26,8 @@ class CompanyFactory extends Factory
             'website' => fake()->url(),
             'logo_path' => fake()->imageUrl(),
             'featured_image_path' => fake()->imageUrl(),
-            'verified' => fake()->randomElement([true,false]),
-            'about' => fake()->paragraph()
+            'verified' => fake()->randomElement([true, false]),
+            'about' => fake()->paragraph(),
         ];
     }
 }

@@ -14,15 +14,16 @@ use Livewire\WithPagination;
 class JobsBoardPage extends Component
 {
     use WithPagination;
+
     #[Url(as: 'q', except: '')]
     public ?string $search = '';
+
     public ?string $skillSlug = '';
+
     public function mount($skill = null)
     {
         $this->skillSlug = $skill;
     }
-
-
 
     #[Computed()]
     public function skills()
@@ -34,14 +35,15 @@ class JobsBoardPage extends Component
     public function jobs()
     {
         if ($this->skillSlug) {
-            return Job::whereHas('skills', function ($query) {
+            return Job::latest()->whereHas('skills', function ($query) {
                 $query->where('slug', $this->skillSlug);
             })
                 ->where('job_title', 'like', "%{$this->search}%")
                 ->with('skills')
                 ->paginate(10);
         }
-        return Job::where('job_title', 'like', "%{$this->search}%")
+
+        return Job::latest()->where('job_title', 'like', "%{$this->search}%")
             ->with('skills')
             ->paginate(10);
     }

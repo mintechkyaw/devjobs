@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Job;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Skill;
 use App\Models\Company;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Job;
+use App\Models\Skill;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

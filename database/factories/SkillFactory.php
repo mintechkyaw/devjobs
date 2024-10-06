@@ -18,7 +18,7 @@ class SkillFactory extends Factory
     {
         return [
             'name' => fake()->unique()->text(10),
-            'slug' => fake()->unique()->slug(2)
+            'slug' => fake()->unique()->slug(2),
         ];
     }
 }
