@@ -27,7 +27,7 @@
                             {{ __('Login') }}
                         </x-nav-link>
                     @endauth
-                    <a href="{{ route('jobs.create') }}"
+                    <a href="{{ route('jobs.create') }}" wire:navigate
                         class="px-5 py-3.5 rounded-xl text-xl font-bold text-white  hover:text-blue-950 
                                  bg-blue-800 sm:bg-indigo-800 md:bg-violet-800 lg:bg-purple-800
                                  hover:bg-blue-800 hover:sm:bg-indigo-800 hover:md:bg-violet-800 hover:lg:bg-purple-800">
@@ -64,7 +64,7 @@
                 <x-responsive-nav-link :href="route('account')" :active="request()->routeIs('account')" wire:navigate>
                     {{ __('Account') }}
                 </x-responsive-nav-link>
-                <a :href="route('jobs.create')" wire:navigate
+                <a href="{{route('jobs.create')}}" wire:navigate
                     class="inline-flex items-center justify-end px-6 py-4 mt-2 text-xl font-extrabold text-white active:text-blue-950 active:bg-blue-800 bg-blue-600 rounded-xl">
                     {{ __('Post a Job') }}
                 </a>

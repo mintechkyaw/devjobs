@@ -46,7 +46,7 @@
                         @php
                         $job_types = ['office', 'hybrid', 'remote']
                         @endphp
-                        @foreach ($job_types as $job_type) =>
+                        @foreach ($job_types as $job_type) 
                         <x-input-label for="{{$job_type}}"
                             class="inline-flex justify-center space-x-1 pe-2 items-center capitalize text-base">
                             <input type="radio" name="jobtype" id="{{$job_type}}" value="{{$job_type}}"
