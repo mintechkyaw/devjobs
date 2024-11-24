@@ -7,10 +7,13 @@ use App\Models\Skill;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 #[Layout('layouts.app')]
 class JobCreatePage extends Component
 {
+    use WithFileUploads;
+
     public JobForm $form;
 
     public function save()

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Job;
 use App\Models\Skill;
 use Illuminate\Database\Seeder;
@@ -17,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         Skill::factory(15)->create();
         Job::factory(40)->create();
-        // Company::factory(10)->create();
+        Company::factory(10)->create();
 
     }
 }

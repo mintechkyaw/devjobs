@@ -1,5 +1,5 @@
 <div class="md:px-2 lg:px-20 py-4">
-    <div class=" grid grid-cols-1  sm:grid-cols-2  gap-x-4 mt-10 mx-2 md:mt-0">
+    <div class="grid grid-cols-1  sm:grid-cols-2  gap-x-4 mt-10 mx-2 md:mt-0">
         @forelse ($this->consultants as $consultant)
             <x-consultant-wrapper verified="{{$consultant->verified}}">
                 <img src="{{ $consultant->logo_path }}" alt=""
@@ -51,11 +51,11 @@
                     </div>
                 </div>
                 <div class="m-2">
-                    {{ $consultant->about }}
+                    {!! str($consultant->about)->sanitizeHtml() !!}
                 </div>
             </x-consultant-wrapper>
         @empty
-            <p class="text-center text-lg">currently no company with that... please stay updated for new company </p>
+            <p class=" text-center text-lg">currently no company with that... please stay updated for new company </p>
         @endforelse
     </div>
 </div>

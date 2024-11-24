@@ -25,7 +25,6 @@ class CompanyFactory extends Factory
             'location' => fake()->country(),
             'website' => fake()->url(),
             'logo_path' => fake()->imageUrl(),
-            'featured_image_path' => fake()->imageUrl(),
             'verified' => fake()->randomElement([true, false]),
             'about' => fake()->paragraph(),
         ];

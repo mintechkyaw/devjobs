@@ -7,7 +7,7 @@
         </div>
         @forelse ($this->jobs as $job)
         <x-job-wrapper featured="{{$job->featured}}" href="/jobs/{{ $job->id }}" wire:navigate>
-            <img src="{{ asset('images/minthantkyaw.png') }}" alt="minthantkyawphoto"
+            <img src="{{ $job->company_logo_path }}" alt="minthantkyawphoto"
                 class="hidden md:block absolute rounded-lg border shadow-lg border-blue-100 h-24 w-24 -left-16">
             <div class="">
                 <div class="text-md font-light">{{ $job->company_name }}</div>
@@ -29,7 +29,6 @@
                     @endforeach
                 </div>
             </div>
-            {{-- <p class="">{{$job->job_description}}</p> --}}
         </x-job-wrapper>
 
         @empty

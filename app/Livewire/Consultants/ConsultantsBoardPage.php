@@ -3,10 +3,8 @@
 namespace App\Livewire\Consultants;
 
 use App\Models\Company;
-use App\Models\Service;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,7 +16,7 @@ class ConsultantsBoardPage extends Component
     #[Computed()]
     public function consultants()
     {
-        return Company::latest()->with('services')->paginate(10);
+        return Company::latest()->paginate(10);
     }
 
     public function render()

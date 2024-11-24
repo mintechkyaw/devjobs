@@ -2,9 +2,7 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Skill;
 use Auth;
-use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -34,8 +32,8 @@ class JobForm extends Form
     #[Validate('required|string|max:255')]
     public string $salary;
 
-    // #[Validate('required|string|max:255')]
-    // public string $company_logo_path;
+    #[Validate('required|image|mimes:jpg,jpeg,png,webp')]
+    public mixed $company_logo_path;
 
     #[Validate('required|boolean')]
     public bool $featured;
@@ -43,10 +41,12 @@ class JobForm extends Form
     public function postjob()
     {
         $this->validate();
+        $this->company_logo_path = $this->company_logo_path->store('jobs_photos', 'public');
         $job = Auth::user()->jobs()->create(
             $this->all()
         );
         $job->skills()->attach($this->job_skills);
+
         return redirect("jobs/$job->id");
     }
 }

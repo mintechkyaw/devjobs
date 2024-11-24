@@ -6,8 +6,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Volt\Component;
 
-new class extends Component
-{
+new class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -38,7 +37,7 @@ new class extends Component
     }
 }; ?>
 
-<section x-data="{open:false}">
+<section x-data="{ open: false }">
     <header class="flex justify-between">
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Update Password') }}

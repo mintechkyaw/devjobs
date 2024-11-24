@@ -54,6 +54,6 @@ new class extends Component {
         </x-job-wrapper>
     </div>
     @empty
-    <p class="text-lg">You haven't post any jobs.. Post one and you will see the magic! </p>
+    <p class="text-lg">You haven't post any jobs.. <a href="{{route('jobs.create')}}" wire:navigate class="underline text-blue-700">Post one</a> and you will see the magic! </p>
     @endforelse
 </section>

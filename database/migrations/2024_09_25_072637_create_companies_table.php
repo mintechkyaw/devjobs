@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -19,7 +20,6 @@ return new class () extends Migration {
             $table->string('location');
             $table->string('website');
             $table->string('logo_path');
-            $table->string('featured_image_path')->nullable();
             $table->boolean('verified')->default(false);
             $table->longText('about');
             $table->timestamps();

@@ -20,7 +20,6 @@
                             <x-skill-tag>{{ $skill->name }}</x-skill-tag>
                         @endforeach
                     </div>
-
                     <div>
                         <x-input-label for="company_name" :value="__('Company Name')" />
                         <x-text-input :disabled="true" value="{{ $this->job->company_name }}" id="company_name"
@@ -35,13 +34,9 @@
                     <div>
                         <x-input-label for="job_description" :value="__('Job Description')" />
                         <p>
-                            {{ $this->job->job_description }}
+                            {!! str($this->job->job_description)->sanitizeHtml() !!}
                         </p>
                     </div>
-                    {{-- <div class="space-y-1.5">
-                        <x-input-label :value="__('Employ Type')" />
-
-                    </div> --}}
                 </div>
             </div>
         </div>
